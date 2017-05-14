@@ -1,0 +1,16 @@
+
+<div class="ui container">
+  <div class="ui segment">
+      <div class="ui cards">
+        <div class="card" *ngFor="let u of users; let i = index">
+          <!--<div class="image">
+            <img src="{{ details.stream.channel.logo }}">
+          </div>-->
+          <div class="content">
+            <div class="header">{{ u.name }}</div>
+            <!--<div class="meta">{{ details.stream.game }} {{ details.stream.stream_type }}</div>
+            <div class="description">{{ details.stream.channel.status }}</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
