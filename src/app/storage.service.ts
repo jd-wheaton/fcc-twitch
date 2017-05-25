@@ -14,4 +14,18 @@ export class StorageService extends Init {
     const users = JSON.parse(localStorage.getItem('users'));
     return users;
   }
+
+  updateData(name, game, logo, status, url) {
+    const users = JSON.parse(localStorage.getItem('users'));
+
+    for ( let i = 0; i < users.length; i++ ) {
+      if ( name === users[i].name ) {
+        users[i].game = game;
+        users[i].logo = logo;
+        users[i].status = status;
+        users[i].url = url;
+        localStorage.setItem('users', JSON.stringify(users));
+      }
+    }
+  }
 }

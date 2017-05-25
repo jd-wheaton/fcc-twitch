@@ -4,18 +4,23 @@ export class Init {
 
       const users = [
         {
-          name: 'freecodecamp'
+          name: 'Deathproof99',
+          game: '',
+          logo: '',
+          status: '',
+          url: ''
         },
         {
-          name: 'deathproof99'
-        },
-        {
-          name: 'kajhit'
+          name: 'FreeCodeCamp',
+          game: '',
+          logo: '',
+          status: '',
+          url: ''
         }
       ];
     localStorage.setItem('users', JSON.stringify(users));
     } else {
-      console.log('Loading users...');
+      console.log('Loading data...');
     }
   }
 }

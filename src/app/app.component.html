@@ -3,13 +3,13 @@
   <div class="ui segment">
       <div class="ui cards">
         <div class="card" *ngFor="let u of users; let i = index">
-          <!--<div class="image">
-            <img src="{{ details.stream.channel.logo }}">
-          </div>-->
+          <div class="image">
+            <img src="{{ u.logo }}">
+          </div>
           <div class="content">
-            <div class="header">{{ u.name }}</div>
-            <!--<div class="meta">{{ details.stream.game }} {{ details.stream.stream_type }}</div>
-            <div class="description">{{ details.stream.channel.status }}</div>-->
+            <div class="header"><a href="{{ u.url }}" target="_blank">{{ u.name }}</a></div>
+            <div class="meta">{{ u.game }} {{ u.stream_type }}</div>
+            <div class="description">{{ u.status }}</div>
           </div>
         </div>
       </div>

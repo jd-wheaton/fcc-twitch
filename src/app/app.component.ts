@@ -11,9 +11,9 @@ import 'rxjs/add/operator/map';
   providers: [ StorageService, TwitchService ]
 })
 export class AppComponent {
-  title = 'app works!';
   users: User[];
   details: User[];
+  name: string;
   game: string;
   logo: string;
   status: string;
@@ -29,6 +29,10 @@ export class AppComponent {
       }
   }
 
+/***
+ * search and renderResults need to be decoupled from the view
+ * and moved into the appropriate service, ?maybe?
+ */
   search(name: any): void {
     this._twitchService
       .searchChannels(name)
@@ -41,13 +45,22 @@ export class AppComponent {
     if (res) {
       this.details = res;
       this.data = this.details;
-      console.log(this.data);
-      return this.data;
+      this.name = this.data.display_name;
+      this.game = this.data.game;
+      this.logo = this.data.logo;
+      this.status = this.data.status;
+      this.url = this.data.url;
+      console.log(this.name, this.game, this.logo, this.status, this.url);
+
+      this._storageService.updateData(this.name, this.game, this.logo, this.status, this.url);
     }
   }
 
 }
-
+/**
+ * this psudo class needs to move to a model and be imported
+ * where necessary !true!
+ */
 export class User {
   name: string;
   game?: string;
